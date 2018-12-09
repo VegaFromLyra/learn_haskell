@@ -24,5 +24,6 @@ digits n = (reverse . repeat) n
                 | num <= 0 = []
                 | otherwise = [ snd (divMod num 10) ] ++ repeat (fst (divMod num 10))
 
+-- 123 -> "one-two-three"
 wordNumber :: Int -> String
-wordNumber n = undefined
+wordNumber n = concat (intersperse "-" (map digitToWord (digits n)))
