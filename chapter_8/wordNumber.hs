@@ -26,4 +26,4 @@ digits n = (reverse . repeat) n
 
 -- 123 -> "one-two-three"
 wordNumber :: Int -> String
-wordNumber n = concat (intersperse "-" (map digitToWord (digits n)))
+wordNumber n = concat $ intersperse "-" $ map digitToWord $ digits n
