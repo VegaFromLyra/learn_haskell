@@ -17,9 +17,12 @@ digitToWord n =
     9 -> "nine"
     _ -> "bla?"
 
+-- 123 -> [1, 2, 3]
 digits :: Int -> [Int]
-digits n = go 
+digits n = (reverse . repeat) n
+  where repeat num
+                | num <= 0 = []
+                | otherwise = [ snd (divMod num 10) ] ++ repeat (fst (divMod num 10))
 
-
-{-wordNumber :: Int -> String-}
-{-wordNumber n = undefined-}
+wordNumber :: Int -> String
+wordNumber n = undefined
